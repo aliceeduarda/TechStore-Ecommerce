@@ -1,0 +1,1371 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:300");
+/* 1. Para remover espaços padrão do navegador */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #ffffff !important;
+  color: #676666 !important;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+header {
+  background-color: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5%;
+  color: white;
+  margin-bottom: 0;
+  width: 100%;
+  position: relative;
+  z-index: 1000;
+}
+
+html {
+  height: 100%;
+  margin: 0;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.rodape-container {
+  flex-shrink: 0;
+}
+
+#dados-edicao {
+  display: none; /* Inicia escondido */
+}
+
+#dados-edicao[style*="display: block"] {
+  display: block !important;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 0;
+}
+
+.logo-img {
+  height: 70px;
+  width: auto;
+  object-fit: contain;
+}
+
+.busca-container {
+  display: flex;
+  background: #fff;
+  border-radius: 25px;
+  overflow: hidden;
+  max-width: 450px;
+  width: 100%;
+  height: 38px;
+}
+
+#campo-busca {
+  flex: 1;
+  border: none;
+  padding: 0 20px;
+  outline: none;
+  font-size: 1rem;
+  color: #333;
+}
+
+.busca-container button {
+  background: #ff9900;
+  border: none;
+  width: 55px;
+  cursor: pointer;
+  color: #000;
+  font-size: 1.1rem;
+}
+
+#botao-carrinho {
+  cursor: pointer;
+  font-size: 1.2rem;
+  white-space: nowrap;
+}
+
+.paginacao-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 40px 0;
+}
+
+.paginacao-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 50px 0;
+  font-family: "Raleway", sans-serif;
+}
+
+.btn-paginacao {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  /* FIXANDO O TAMANHO */
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.btn-paginacao.ativo {
+  color: #ff9900;
+  font-weight: 800;
+  border-bottom: 2px solid #ff9900;
+}
+
+.btn-paginacao:hover:not(.ativo) {
+  color: #fff;
+  background-color: rgba(255, 153, 0, 0.1);
+  border-radius: 4px;
+}
+
+/* Agrupador dos ícones da direita */
+.header-acoes {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+#botao-conta {
+  color: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s;
+}
+
+#botao-conta:hover {
+  color: #ff9900;
+}
+
+#botao-conta span {
+  font-weight: 500;
+}
+
+/* 3.1 LOGIN PHP - ACESSO RESTRITO */
+
+/* Container que ocupa a tela toda apenas na página de login */
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #f4f7f6;
+}
+
+/* Mantém o estilo o quadradinho */
+.form-admin {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 350px;
+  text-align: center;
+}
+
+.form-admin h2 {
+  margin-bottom: 25px;
+  color: #333;
+  font-size: 1.5rem;
+  font-weight: 600;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilização dos campos de entrada */
+.form-admin input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+/* Efeito quando o usuário clica no campo */
+.form-admin input:focus {
+  border-color: #ff9900;
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 153, 0, 0.2);
+}
+
+/* Botão de Entrar */
+.form-admin button {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff9900;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+}
+
+/* Efeitos no botão ao passar o mouse */
+.form-admin button:hover {
+  background-color: #e68a00;
+  transform: translateY(-2px);
+}
+
+.form-admin button:active {
+  transform: translateY(0);
+}
+
+/* 3.2  A Vitrine */
+#vitrine {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+  gap: 25px !important;
+  padding: 20px 5% !important;
+  justify-content: center !important;
+}
+
+.categoria-tag {
+  background: #eee;
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #666;
+  text-transform: uppercase;
+}
+
+.descricao-curta {
+  font-size: 0.85rem;
+  color: #777;
+  margin: 10px 0;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Container que agrupa as informações de preço VITRINE */
+.container-preco-vitrine {
+  margin: 10px 0;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* O preço principal (PIX) */
+.preco-pix {
+  color: #27ae60;
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+/* Texto informativo "no PIX ou" */
+.metodo-pagamento {
+  font-size: 0.75rem;
+  color: #777;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 2px 0;
+}
+
+/* Preço parcelado (menor que o do PIX) */
+.container-preco-vitrine {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  margin: 10px 0;
+  line-height: 1.1;
+}
+
+/* Preço do PIX na Vitrine */
+.container-preco-vitrine .preco-pix {
+  color: #27ae60;
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+/* Texto "no PIX ou" */
+.container-preco-vitrine .metodo-pagamento {
+  font-size: 0.7rem;
+  color: #888;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Preço Total Parcelado */
+.container-preco-vitrine .preco-parcelado {
+  font-size: 0.95rem;
+  color: #444;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Frase do parcelamento */
+.container-preco-vitrine .parcelamento {
+  font-size: 0.7rem;
+  color: #999;
+  margin: 0;
+}
+
+.produto-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+.produto-card:hover {
+  transform: translateY(-5px);
+}
+
+.produto-card img {
+  max-width: 100% !important;
+  height: 180px !important;
+  object-fit: contain !important;
+  margin: 0 auto 15px auto !important;
+}
+
+.produto-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  min-height: 50px;
+  overflow: hidden;
+}
+
+/* 2. O container de preços empurra o botão */
+.container-preco-vitrine {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+/* 3. O botão sempre fica no final (Footer do card) */
+.produto-card button {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff9900;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: auto;
+}
+
+/* 4. ESTILO ESPECÍFICO PARA PÁGINA DE DETALHES */
+
+.container-preco-detalhes {
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.preco-pix-grande {
+  color: #27ae60 !important;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.metodo-pix {
+  color: #666;
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.preco-ou {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+/* Garante que o botão de adicionar ao carrinho não fique colado */
+.btn-comprar-grande {
+  margin-top: 15px;
+  padding: 18px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+/* 5. Botão de Compra  */
+button {
+  background-color: #ff9900;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background-color: #e68a00;
+}
+
+/* Animação de entrada dos produtos */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.produto-card {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+/* 6. Destaque para Ofertas */
+.selo-oferta {
+  background-color: #e74c3c;
+  color: white;
+  padding: 2px 8px;
+  font-size: 0.7rem;
+  border-radius: 3px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* 7. Menu */
+
+button {
+  cursor: pointer;
+  border: none;
+  transition: 0.3s;
+  font-family: "Raleway", sans-serif;
+}
+
+/* MENU DE CATEGORIAS (Onde estão os botões que ficaram grandes) */
+.menu-categorias {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  padding: 20px !important;
+  background: #000 !important;
+}
+
+.menu-categorias button {
+  width: auto !important;
+  padding: 10px 20px !important;
+  background: #fff !important;
+  color: #000 !important;
+  border-radius: 5px !important;
+  font-weight: bold !important;
+  font-size: 0.9rem !important;
+}
+
+.menu-categorias button:hover {
+  background: #ff9900 !important;
+  color: #000 !important;
+}
+
+/* 8. Botão flutuante */
+#botao-carrinho {
+  position: fixed;
+  bottom: 10px;
+  right: 25px;
+  background: #ff9900;
+  padding: 5px;
+  border-radius: 10%;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1001;
+}
+
+/* 9. Painel Lateral */
+#carrinho-lateral {
+  position: fixed;
+  top: 0;
+  right: 0px;
+  width: 350px;
+  height: 100%;
+  background: white;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+  z-index: 1002;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Botão "X" de fechar dentro do header do carrinho */
+.carrinho-header button {
+  background: #ff9900;
+  color: black;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  width: auto;
+}
+
+/* Layout de cada item no carrinho */
+.item-no-carrinho {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/* Tamanho da imagem no carrinho */
+.img-carrinho {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  background: #f9f9f9;
+  border-radius: 4px;
+}
+
+.info-item-carrinho {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  font-size: 0.9rem;
+}
+
+.btn-remover {
+  background: none;
+  border: none;
+  color: #ff4d4d;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0 5px;
+}
+
+.carrinho-header button:hover {
+  background: #fff;
+}
+
+.carrinho-fechado {
+  transform: translateX(100%);
+}
+
+.carrinho-header {
+  padding: 20px;
+  background: #000;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+#itens-carrinho {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.item-no-carrinho {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+.carrinho-footer {
+  padding: 20px;
+  border-top: 2px solid #eee;
+}
+
+.btn-finalizar {
+  background: #27ae60;
+  color: white;
+  border: none;
+  padding: 15px;
+  width: 100%;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* 10. LAYOUT DA PÁGINA DE DETALHES */
+
+.container-produto {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 5%;
+}
+
+.produto-detalhe-layout {
+  display: flex;
+  gap: 60px;
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  align-items: flex-start;
+}
+
+/* Coluna da Esquerda - FOTOS */
+.fotos-coluna {
+  flex: 1.5;
+  min-width: 500px;
+}
+
+/* O Container do Slider */
+.slider-container {
+  position: relative;
+  width: 100%;
+}
+
+/* Janela de Visualização (Viewport) */
+.slider-viewport {
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+}
+
+/* A trilha que move as fotos */
+.slider-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Cada foto dentro do carrossel */
+.foto-slider {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  flex-shrink: 0;
+  padding: 30px;
+}
+
+/* --- SETAS DE NAVEGAÇÃO --- */
+.seta {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 45px;
+  height: 45px;
+  background: white;
+  border: 2px solid #ff9900;
+  color: #ff9900;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.seta:hover {
+  background: #ff9900;
+  color: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.seta-esquerda {
+  left: -22px;
+}
+.seta-direita {
+  right: -22px;
+}
+
+/* --- COLUNA DA DIREITA - INFORMAÇÕES --- */
+.info-coluna {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.info-coluna h1 {
+  font-size: 2.2rem;
+  color: #333;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.categoria-badge {
+  color: #888;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.preco-grande {
+  font-size: 2.8rem;
+  color: #27ae60;
+  font-weight: 800;
+  margin: 20px 0;
+}
+
+.descricao-completa {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 40px;
+  text-align: justify;
+}
+
+.btn-comprar-grande {
+  background: #ff9900;
+  color: #000;
+  border: none;
+  padding: 20px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+  text-transform: uppercase;
+}
+
+.btn-comprar-grande:hover {
+  background: #e68a00;
+}
+
+/* Responsividade Básica */
+@media (max-width: 900px) {
+  .produto-detalhe-layout {
+    flex-direction: column;
+    padding: 20px;
+  }
+  .fotos-coluna {
+    min-width: 100%;
+  }
+  .slider-viewport {
+    height: 400px;
+  }
+  .seta-esquerda {
+    left: 10px;
+  }
+  .seta-direita {
+    right: 10px;
+  }
+}
+
+/* Layout da página "Detalhes do produto"*/
+.produto-detalhe-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Container do topo (Imagem + Info) */
+.secao-principal {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* Ajuste das colunas no topo */
+.fotos-coluna {
+  flex: 1.2;
+}
+.info-coluna {
+  flex: 1;
+}
+
+/* Estilo da Descrição na parte de baixo */
+.descricao-completa-container {
+  width: 100%;
+  padding-top: 30px;
+  border-top: 2px solid #eee;
+  margin-top: 10px;
+}
+
+.descricao-completa-container h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.descricao-texto {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  text-align: justify;
+}
+
+/* --- MOBILE (Responsividade) --- */
+@media (max-width: 850px) {
+  .secao-principal {
+    flex-direction: column;
+  }
+
+  .fotos-coluna,
+  .info-coluna {
+    width: 100%;
+  }
+}
+
+/* Fundo do Modal, ZOOM na imagem do produto */
+#modal-zoom {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: zoom-out;
+}
+
+/* A imagem dentro do modal */
+.img-zoom-aberta {
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  cursor: zoom-in;
+}
+
+/* O ZOOM REAL: Quando passar o mouse na imagem aberta */
+.img-zoom-aberta:hover {
+  transform: scale(2);
+}
+
+/* Botão de Fechar (X) */
+.btn-fechar-zoom {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/*  Frase de efeito hearder */
+
+.fancy {
+  display: block !important;
+  width: 100% !important;
+  text-align: center !important;
+  padding: 60px 20px !important;
+  background: #000 !important;
+  margin: 0 !important;
+  position: relative;
+  color: #ff9900;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  margin: 20px;
+  font-family: "Raleway", sans-serif;
+  text-shadow: 2px 1px 10px rgba(255, 153, 0, 0.7);
+  margin-top: 0;
+  margin-bottom: 0;
+  min-height: 1.5em;
+  overflow: hidden;
+}
+
+.fancy span {
+  display: inline-block !important;
+  font-size: clamp(0.9rem, 3.5vw, 2rem) !important;
+  color: #ff9900 !important;
+  text-transform: uppercase;
+  font-weight: 700;
+  opacity: 0;
+  animation: aparicao-gradual 1.5s alternate infinite;
+  opacity: 0;
+  transition: opacity 0.4s ease-in;
+}
+
+.fancy span[style*="animation-delay"] {
+  opacity: 1 !important;
+  transition: opacity 0.3s ease;
+}
+
+.fancy.animado-pronto {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease-in;
+}
+
+@keyframes aparicao-gradual {
+  0% {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  50%,
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+/* Footer (Rodapé) */
+.rodape-container {
+  background-color: #000;
+  color: white;
+  padding: 40px 5%;
+  margin-top: 50px;
+}
+
+#btn-voltar-topo {
+  display: block;
+  margin: 0 auto 30px;
+  background: #ff9900;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.rodape-conteudo {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.rodape-secao {
+  flex: 1;
+  min-width: 200px;
+}
+
+.rodape-secao h3 {
+  color: #ff9900;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+/* Ícones de Pagamento  */
+.pagamento-icones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pagamento-icones img {
+  height: 35px;
+  background: white;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+/* Botões Personalizados */
+.btn-rodape,
+.btn-social-disabled {
+  display: block;
+  width: fit-content;
+  padding: 8px 15px;
+  margin-bottom: 8px;
+  background: #222;
+  border: 1px solid #ff9900;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.btn-social-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.social-links {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  position: relative;
+  z-index: 10;
+}
+
+.btn-social {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #222;
+  color: #ffffff !important;
+  border: 1px solid #ff9900;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  pointer-events: auto !important;
+}
+
+.btn-social:hover {
+  background-color: #ff9900;
+  color: #000 !important;
+  transform: translateY(-3px);
+  transition: 0.3s;
+}
+
+/* Logo Final */
+.rodape-logo-final {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #333;
+}
+
+.logo-rodape {
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+/* Modal de Dúvida */
+.modal-duvida-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 3000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-duvida-content {
+  background: #1a1a1a;
+  padding: 30px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  border: 1px solid #ff9900;
+}
+
+.modal-duvida-content input,
+.modal-duvida-content textarea {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  background: #333;
+  border: 1px solid #444;
+  color: white;
+}
+
+.modal-botoes {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.modal-botoes button {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-enviar {
+  background-color: #ff9900;
+  color: #000;
+}
+
+.btn-cancelar {
+  background-color: #444;
+  color: #fff;
+}
+
+.btn-cancelar:hover {
+  background-color: #555;
+}
+
+/* PÁGINA SOBRE */
+.sobre-container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 0 !important;
+  padding-top: 20px;
+  color: white;
+  font-family: "Raleway", sans-serif;
+  box-sizing: border-box;
+}
+
+.sobre-banner {
+  background-color: #000;
+  width: 100%;
+  padding: 40px 0;
+  text-align: center;
+  margin-top: -100px;
+  margin-bottom: 50px;
+}
+
+.centralizar-conteudo {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 60px !important;
+  display: block;
+  width: 100%;
+}
+
+.sobre-conteudo h2 {
+  color: #ff9900;
+  margin-bottom: 20px;
+  border-left: 5px solid #ff9900;
+  padding-left: 15px;
+}
+
+.sobre-texto h2 {
+  color: #ff9900;
+  margin-top: 0;
+}
+
+.sobre-texto p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: #808080;
+  max-width: 900px;
+}
+
+.sobre-missao {
+  display: flex;
+  gap: 40px;
+  margin: 40px 0;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.card-missao {
+  flex: 1;
+  min-width: 280px;
+  background: #111;
+  margin-top: 10px;
+  padding: 30px;
+  border-radius: 10px;
+  border: 1px solid #333;
+  transition: 0.3s;
+}
+
+.sobre-dev {
+  background: #111;
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  width: 100%;
+}
+
+.dev-perfil {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-top: 20px;
+  margin: 0 auto;
+  flex-direction: column !important;
+  text-align: center;
+  gap: 20px;
+}
+
+.dev-avatar {
+  font-size: 3rem;
+  background: #222;
+  padding: 20px;
+  border-radius: 50%;
+}
+
+.dev-info h3 {
+  color: #ff9900;
+  margin-bottom: 5px;
+}
+
+/* PÁGINA CONTA*/
+.input-padrao {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  background: #222;
+  border: 1px solid #444;
+  color: white;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.aba-auth {
+  background: none;
+  border: none;
+  color: #888;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-family: "Raleway", sans-serif;
+  border-bottom: 3px solid transparent;
+  transition: 0.3s;
+}
+
+.aba-auth.active {
+  border-bottom: 3px solid #ff9900;
+  color: #ff9900;
+  font-weight: bold;
+}
+
+/* "Olinho" de visualização de senha */
+.senha-container {
+  position: relative;
+  width: 100%;
+}
+
+.senha-container .input-padrao {
+  padding-right: 40px;
+}
+
+/* Estilo do ícone */
+.toggle-password {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #888;
+  transition: color 0.3s ease;
+  z-index: 10;
+  font-size: 1.1rem;
+}
+
+.toggle-password:hover {
+  color: #ff9900;
+}
+
+/* Ajuste para telas de celular */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column !important;
+    height: auto !important;
+    padding: 15px !important;
+    gap: 15px;
+  }
+
+  .header-logo {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .busca-container {
+    width: 100% !important;
+    max-width: none !important;
+    order: 3;
+  }
+
+  .header-acoes {
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  /* Garante que o input não fique minúsculo */
+  #campo-busca {
+    font-size: 16px !important;
+    height: 40px;
+  }
+}
+
+#dados-edicao {
+  display: none !important;
+}
+
+/* Estilização para o card não vazar */
+.card-usuario {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow: hidden;
+}
+
+/* Estilo Base para os botões do Painel */
+.btn-alaranja,
+.btn-card,
+.btn-logout-topo,
+.btn-secundario {
+  width: fit-content;
+  min-width: 180px;
+  padding: 12px 25px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* Botão Laranja (Principal) */
+.btn-alaranja,
+.btn-card {
+  background-color: #ff9900;
+  color: white;
+}
+
+.btn-alaranja:hover {
+  background-color: #e68a00;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 153, 0, 0.3);
+}
+
+/* Botão Secundário (Cancelar/Sair) */
+.btn-secundario,
+.btn-logout-topo {
+  background-color: #f4f4f4;
+  color: #555;
+  border: 1px solid #ddd;
+}
+
+.btn-secundario:hover {
+  background-color: #e8e8e8;
+  color: #333;
+}

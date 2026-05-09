@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Conta - TechStore</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-logo" onclick="window.location.href='index.html'" style="cursor:pointer">
+            <img src="img/logo_techstore.png" alt="Logo TechStore" class="logo-img">
+            <h1>TechStore</h1>
+        </div>
+
+        <div class="busca-container">
+    <input type="text" id="campo-busca" placeholder="Pesquisar produtos..." 
+           onkeypress="verificarEnter(event)">
+    <button onclick="dispararBusca()"><i class="fas fa-search"></i></button>
+</div>
+
+<div class="header-acoes">
+    <div id="botao-conta" onclick="window.location.href='conta.html'" title="Minha Conta">
+        <i class="fas fa-user"></i> <span id="link-login-header">Login</span>
+    </div>
+
+    <div id="botao-carrinho" onclick="toggleCarrinho()">
+        🛒 <span id="qtd-itens">0</span>
+    </div>
+</div>
+
+    </header>
+
+    <main class="centralizar-conteudo" style="padding-top: 50px; padding-bottom: 80px;">
+        
+        <section id="secao-auth" class="sobre-dev">
+            <div class="tabs-auth">
+                <button onclick="alternarAuth('login')" id="btn-tab-login" class="aba-auth active">Já sou cliente</button>
+                <button onclick="alternarAuth('cadastro')" id="btn-tab-cadastro" class="aba-auth">Criar conta</button>
+            </div>
+
+            <form id="form-login" onsubmit="fazerLogin(event)">
+                <h2 style="color: #ff9900; margin-bottom: 20px;">Acessar Conta</h2>
+                <input type="text" id="login-identificador" class="input-padrao" placeholder="E-mail ou CPF" required>
+                
+                <div class="senha-container">
+                    <input type="password" id="login-senha" class="input-padrao" placeholder="Senha" required>
+                    <i class="fas fa-eye toggle-password" onclick="toggleSenha('login-senha')"></i>
+                </div>
+
+                <button type="submit" class="btn-comprar-grande">ENTRAR</button>
+                <p style="margin-top: 15px; text-align: center;">
+                    <a href="#" onclick="alternarAuth('recuperar')" style="color: #888; font-size: 0.9rem;">Esqueci minha senha</a>
+                </p>
+            </form>
+
+            <form id="form-cadastro" onsubmit="fazerCadastro(event)" style="display: none;">
+                <h2 style="color: #ff9900; margin-bottom: 20px;">Nova Conta</h2>
+                <input type="text" id="cad-nome" class="input-padrao" placeholder="Nome Completo" required>
+                <input type="email" id="cad-email" class="input-padrao" placeholder="E-mail" required>
+                <input type="text" id="cad-cpf" class="input-padrao" placeholder="CPF (000.000.000-00)" required maxlength="14">
+                <input type="tel" id="cad-celular" class="input-padrao" placeholder="Celular (00 000000000)" required maxlength="12">
+
+                <input type="text" id="cad-endereco" class="input-padrao" placeholder="Endereço Completo" required>
+
+                
+                <div class="senha-container">
+                    <input type="password" id="cad-senha" class="input-padrao" placeholder="Senha (mín. 6 caracteres)" required maxlength="10">
+                    <i class="fas fa-eye toggle-password" onclick="toggleSenha('cad-senha')"></i>
+                </div>
+                
+                <button type="submit" class="btn-comprar-grande">CADASTRAR</button>
+            </form>
+
+            <form id="form-recuperar" onsubmit="solicitarNovaSenha(event)" style="display: none;">
+                <h2 style="color: #ff9900; margin-bottom: 20px;">Recuperar Senha</h2>
+                <p style="color: #888; margin-bottom: 20px; font-size: 0.9rem;">Confirme seus dados para cadastrar uma nova senha.</p>
+                <input type="email" id="rec-email" class="input-padrao" placeholder="E-mail cadastrado" required>
+                <input type="text" id="rec-cpf" class="input-padrao" placeholder="CPF cadastrado" required maxlength="14">
+                
+                <div class="senha-container">
+                    <input type="password" id="rec-nova-senha" class="input-padrao" placeholder="Nova Senha" required>
+                    <i class="fas fa-eye toggle-password" onclick="toggleSenha('rec-nova-senha')"></i>
+                </div>
+                
+                <button type="submit" class="btn-comprar-grande">ATUALIZAR SENHA</button>
+                <button type="button" onclick="alternarAuth('login')" class="btn-rodape" style="margin-top: 10px;">Voltar ao Login</button>
+            </form>
+        </section>
+
+       <section id="painel-usuario" style="display: none;">
+    <div class="user-header">
+        <h1>Olá, <span id="user-nome-exibicao"></span>!</h1>
+        <button onclick="fazerLogout()" class="btn-logout-topo">Sair</button>
+    </div>
+
+    <div class="cards-container">
+        <div class="card-usuario">
+            <div class="card-icon"><i class="fas fa-box"></i></div>
+            <h3>Meus Pedidos</h3>
+            <p>Você ainda não possui compras.</p>
+            <button class="btn-card">Ver Detalhes</button>
+        </div>
+
+       <div class="card-usuario">
+    <div class="card-icon"><i class="fas fa-user-edit"></i></div>
+    <h3>Dados da Conta</h3>
+    
+    <!-- BLOCO 1: APENAS LEITURA -->
+    <div id="dados-leitura">
+       <p><strong>Nome Completo:</strong> <span id="user-nome-completo-exibicao"></span></p>
+        <p><strong>CPF:</strong> <span id="user-cpf-exibicao"></span></p> 
+        <p><strong>E-mail:</strong> <span id="user-email-exibicao"></span></p>
+        <p><strong>Celular:</strong> <span id="user-celular-exibicao"></span></p>
+        <p><strong>Endereço:</strong> <span id="user-endereco-exibicao"></span></p>
+        
+        <button onclick="toggleEdicao(true)" class="btn-alaranja">Editar Perfil</button>
+    </div>
+
+    <!-- BLOCO 2: APENAS EDIÇÃO -->
+<div id="dados-edicao" style="display: none;">
+    <div class="campo-edicao">
+        <label>E-mail:</label>
+        <input type="email" id="edit-email" class="input-padrao">
+    </div>
+    <div class="campo-edicao">
+        <label>Celular:</label>
+        <input type="text" id="edit-celular" class="input-padrao">
+    </div>
+    <div class="campo-edicao">
+        <label>Endereço:</label>
+        <input type="text" id="edit-endereco" class="input-padrao">
+    </div>
+    
+    <!-- Container de botões  -->
+   <div class="botoes-container">
+    <button onclick="salvarEdicao()" class="btn-alaranja">Salvar Alterações</button>
+    <button onclick="toggleEdicao(false)" class="btn-secundario">Cancelar</button>
+</div>
+</div> 
+
+
+        </div> 
+    </section>
+</main>
+ 
+    <aside id="carrinho-lateral" class="carrinho-fechado">
+        <div class="carrinho-header">
+            <h2>Meu Carrinho</h2>
+            <button onclick="toggleCarrinho()">X</button>
+        </div>
+        <div id="itens-carrinho"></div>
+        <div class="carrinho-footer">
+            <h3>Total: R$ <span id="valor-total">0.00</span></h3>
+           <button class="btn-finalizar" onclick="alertar('Atenção!', 'Funcionalidade de checkout em breve!', 'info')">
+              Finalizar Compra
+         </button>
+        </div>
+    </aside>
+
+    <footer class="rodape-container">
+        <div class="rodape-logo-final">
+            <img src="img/techstore_footer_logo.png" alt="Tech Store Footer Logo" class="logo-rodape">
+            <p>&copy; 2026 TechStore - Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>

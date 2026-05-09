@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <title>TechStore - Eletrônicos</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:300,700"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    
+  </head>
+  <body>
+    <header>
+      <div class="header-logo" onclick="irParaHome()" style="cursor: pointer">
+        <img
+          src="img/logo_techstore.png"
+          alt="Logo TechStore"
+          class="logo-img"
+        />
+        <h1>TechStore</h1>
+      </div>
+
+      <div class="busca-container">
+        <input
+          type="text"
+          id="campo-busca"
+          placeholder="Pesquisar produtos..."
+          onkeyup="filtrarProdutos()"
+          style="cursor: pointer"
+        />
+        <button onclick="dispararBusca()"><i class="fas fa-search"></i></button>
+      </div>
+
+      <div class="header-acoes">
+        <div
+          id="botao-conta"
+          onclick="window.location.href = 'conta.html'"
+          title="Minha Conta"
+        >
+          <i class="fas fa-user"></i> <span id="link-login-header">Login</span>
+        </div>
+
+        <div id="botao-carrinho" onclick="toggleCarrinho()">
+          🛒 <span id="qtd-itens">0</span>
+        </div>
+      </div>
+    </header>
+
+    <h1 class="fancy">
+      <span>Sua Performance Começa na TechStore</span>
+    </h1>
+
+    <nav class="menu-categorias">
+      <button onclick="filtrarCategoria('todos')">Todos</button>
+      <button onclick="filtrarCategoria('PC Gamer')">PC Gamer</button>
+      <button onclick="filtrarCategoria('Hardware')">Hardware</button>
+      <button onclick="filtrarCategoria('Periféricos')">Periféricos</button>
+      <button onclick="filtrarCategoria('Setup')">Setup</button>
+      <button onclick="filtrarCategoria('Realidade Virtual')">
+        Realidade Virtual
+      </button>
+    </nav>
+
+    <div class="ordenacao-container">
+      <label for="ordenar">Ordenar por:</label>
+      <select id="ordenar" onchange="ordenarProdutos()">
+        <option value="padrao">Destaques</option>
+        <option value="az">Nome (A-Z)</option>
+        <option value="za">Nome (Z-A)</option>
+        <option value="preco-crescente">Menor Preço</option>
+        <option value="preco-decrescente">Maior Preço</option>
+      </select>
+    </div>
+
+    <main id="vitrine"></main>
+
+    <div id="paginacao" class="paginacao-container"></div>
+
+    <footer class="rodape-container">
+      <button
+        id="btn-voltar-topo"
+        onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+      >
+        ↑ Voltar ao Topo
+      </button>
+
+      <div class="rodape-conteudo">
+        <div class="rodape-secao">
+          <h3>Sobre a TechStore</h3>
+          <a
+            href="sobre.html"
+            class="btn-rodape"
+            style="text-decoration: none; display: inline-block"
+          >
+            Conheça nossa história
+          </a>
+        </div>
+
+        <div class="rodape-secao">
+          <h3>Formas de Pagamento</h3>
+          <div class="pagamento-icones">
+            <img src="img/visa.png" alt="Visa" />
+            <img src="img/mastercard.png" alt="Mastercard" />
+            <img src="img/amex.png" alt="Amex" />
+            <img src="img/boleto.png" alt="Boleto" />
+            <img src="img/pix.png" alt="Pix" />
+            <img src="img/nupay.png" alt="NuPay" />
+          </div>
+        </div>
+
+        <div class="rodape-secao">
+          <h3>Fale Conosco</h3>
+          <div class="social-links">
+            <a
+              href="https://www.linkedin.com/in/aliceeduarda-mth/"
+              target="_blank"
+              class="btn-social"
+              >LinkedIn</a
+            >
+            <a
+              href="https://github.com/aliceeduarda"
+              target="_blank"
+              class="btn-social"
+              >GitHub</a
+            >
+          </div>
+        </div>
+
+        <div class="rodape-secao">
+          <h3>Dúvidas?</h3>
+          <button class="btn-rodape" onclick="abrirModalDuvida()">
+            Tire sua Dúvida
+          </button>
+        </div>
+      </div>
+
+      <div class="rodape-logo-final">
+        <img
+          src="img/techstore_footer_logo.png"
+          alt="Tech Store Footer Logo"
+          class="logo-rodape"
+        />
+        <p>&copy; 2026 TechStore - Todos os direitos reservados.</p>
+      </div>
+    </footer>
+
+    <div id="modal-duvida" class="modal-duvida-overlay">
+      <div class="modal-duvida-content">
+        <h2>Tire sua Dúvida</h2>
+        <form id="form-duvida">
+          <input type="text" placeholder="Assunto" required />
+          <textarea placeholder="Sua Dúvida" rows="4" required></textarea>
+          <input type="email" placeholder="Seu E-mail" required />
+          <div class="modal-botoes">
+            <button type="submit" class="btn-enviar">Enviar</button>
+            <button
+              type="button"
+              class="btn-cancelar"
+              onclick="fecharModalDuvida()"
+            >
+              Cancelar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <aside id="carrinho-lateral" class="carrinho-fechado">
+      <div class="carrinho-header">
+        <h2>Meu Carrinho</h2>
+        <button onclick="toggleCarrinho()">X</button>
+      </div>
+      <div id="itens-carrinho"></div>
+      <div class="carrinho-footer">
+        <h3>Total: R$ <span id="valor-total">0.00</span></h3>
+
+        <button class="btn-finalizar" onclick="alertar('Atenção!', 'Funcionalidade de checkout em breve!', 'info')">
+    Finalizar Compra
+</button>
+      </div>
+    </aside>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <script src="script.js"></script>
+
+    <script>
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", setupPagina);
+      } else {
+        setupPagina();
+      }
+    </script>
+  </body>
+</html>
