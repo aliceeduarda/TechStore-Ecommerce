@@ -198,7 +198,7 @@ async function adicionarAoCarrinho(produtoId) {
   if (!usuarioLogado) {
     alertar(
       "Atenção",
-      "Ops! Você precisa estar logado para adicionar itens ao carrinho.",
+    "Ops! Você precisa estar logado para adicionar itens ao carrinho.", "warning" 
     );
     window.location.href = "conta.html";
     return;

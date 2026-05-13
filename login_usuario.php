@@ -3,15 +3,10 @@
 ini_set('display_errors', 0);
 header('Content-Type: application/json');
 
-$host = '127.0.0.1';
-$db   = 'loja_eletronicos'; 
-$user_db = 'root';
-$pass_db = '';
+include 'config.php'; 
 
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user_db, $pass_db);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+   
     $json = file_get_contents("php://input");
     $dados = json_decode($json, true);
 

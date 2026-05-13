@@ -2,14 +2,9 @@
 ini_set('display_errors', 0); 
 header('Content-Type: application/json');
 
-$endereco_banco = '127.0.0.1';
-$nome_banco     = 'loja_eletronicos';
-$usuario_mysql  = 'root';
-$senha_mysql    = '';
+include 'config.php'; 
 
 try {
-    $pdo = new PDO("mysql:host=$endereco_banco;dbname=$nome_banco;charset=utf8", $usuario_mysql, $senha_mysql);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $json = file_get_contents("php://input");
     $dados = json_decode($json, true);

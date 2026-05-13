@@ -1,6 +1,9 @@
-# 🛒 TechStore - E-commerce Full Stack
+# 🛒 TechStore | Projeto E-commerce Full Stack
 
 Bem-vindo ao repositório da **TechStore**, um e-commerce completo desenvolvido como parte do meu portfólio pessoal. Este projeto integra Front-end dinâmico com um Back-end robusto para simular uma experiência real de compra de hardware e periféricos.
+
+## 🔗 Acesse o Projeto
+O site está disponível em: [TechStore](http://techstore-alice.infinityfreeapp.com/?cat=todos&page=1)
 
 ## 👩‍💻 Sobre a Autora
 Desenvolvido por **Alice Eduarda**, estudante de Análise e Desenvolvimento de Sistemas (ADS). Foco em transformar lógica de programação em soluções funcionais e intuitivas.
@@ -19,11 +22,7 @@ Desenvolvido por **Alice Eduarda**, estudante de Análise e Desenvolvimento de S
 * **Área Administrativa:** Painel restrito para cadastro de novos produtos na loja.
 * **Recuperação de Senha:** Fluxo de redefinição baseado em e-mail e CPF.
 
-## 📦 Como Executar
-1. Clone este repositório.
-2. Importe o banco de dados `loja_eletronicos.sql`.
-3. Configure o arquivo `config.php` com suas credenciais locais.
-4. Rode em um ambiente PHP (Laragon/XAMPP).
+
 
 ---
 📬 **Conecte-se comigo:** [LinkedIn](https://www.linkedin.com/in/aliceeduarda-mth/) | [GitHub](https://github.com/aliceeduarda)

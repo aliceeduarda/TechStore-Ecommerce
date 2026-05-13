@@ -1,25 +1,18 @@
 <?php
 
-$host = "localhost";
-$user = "root";
-$pass = "";
-$dbname = "loja_eletronicos";
+include 'config.php'; 
 
-$conn = new mysqli($host, $user, $pass, $dbname);
+header('Content-Type: application/json');
 
-$sql = "SELECT * FROM produtos";
-$result = $conn->query($sql);
+try {
+    $sql = "SELECT * FROM produtos";
+    $stmt = $pdo->query($sql);
+    
+    $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-$produtos = [];
+    echo json_encode($produtos);
 
-if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-        $produtos[] = $row; 
-    }
+} catch (PDOException $e) {
+    echo json_encode(['erro' => $e->getMessage()]);
 }
-
-// Transforma o array PHP em JSON (Linguagem que o JavaScript entende)
-echo json_encode($produtos);
-
-$conn->close();
 ?>
