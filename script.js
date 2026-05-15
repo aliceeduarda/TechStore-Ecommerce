@@ -198,7 +198,7 @@ async function adicionarAoCarrinho(produtoId) {
   if (!usuarioLogado) {
     alertar(
       "Atenção",
-    "Ops! Você precisa estar logado para adicionar itens ao carrinho.", "warning" 
+      "Ops! Você precisa estar logado para adicionar itens ao carrinho.",
     );
     window.location.href = "conta.html";
     return;
@@ -439,17 +439,24 @@ function fecharZoom() {
 
 // Frase de efeito
 function iniciarAnimacaoTitulo() {
-  const fancyHeading = document.querySelector(".fancy");
+  const fancyHeading = document.querySelector(".fancy span");
   if (!fancyHeading) return;
 
   const textoOriginal = fancyHeading.textContent.trim();
   const letras = textoOriginal.split("");
-  const novoConteudo = letras
-    .map((char) => {
-      const delay = Math.floor(Math.random() * 1000 + 1);
-      return `<span style="animation-delay: ${delay}ms">${char === " " ? "&nbsp;" : char}</span>`;
-    })
-    .join("");
+  
+  const novoConteudo = letras.map((char, index) => {
+    const delay = Math.floor(Math.random() * 1000 + 1);
+    let html = `<span style="animation-delay: ${delay}ms">${char === " " ? "&nbsp;" : char}</span>`;
+    
+    // Se chegarmos no final de "Performance", adicionamos a quebra de linha
+    // O índice 14 é logo após a letra 'e' de "Performance"
+    if (index === 15) { 
+      html += "<br>"; 
+    }
+    
+    return html;
+  }).join("");
 
   fancyHeading.innerHTML = novoConteudo;
 }

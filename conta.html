@@ -146,6 +146,96 @@
         </div> 
     </section>
 </main>
+        
+         <footer class="rodape-container">
+      <button
+        id="btn-voltar-topo"
+        onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+      >
+        ↑ Voltar ao Topo
+      </button>
+
+      <div class="rodape-conteudo">
+        <div class="rodape-secao">
+          <h3>Sobre a TechStore</h3>
+          <a
+            href="sobre.html"
+            class="btn-rodape"
+            style="text-decoration: none; display: inline-block"
+          >
+            Conheça nossa história
+          </a>
+        </div>
+
+        <div class="rodape-secao">
+          <h3>Formas de Pagamento</h3>
+          <div class="pagamento-icones">
+            <img src="img/visa.png" alt="Visa" />
+            <img src="img/mastercard.png" alt="Mastercard" />
+            <img src="img/amex.png" alt="Amex" />
+            <img src="img/boleto.png" alt="Boleto" />
+            <img src="img/pix.png" alt="Pix" />
+            <img src="img/nupay.png" alt="NuPay" />
+          </div>
+        </div>
+
+        <div class="rodape-secao">
+          <h3>Fale Conosco</h3>
+          <div class="social-links">
+            <a
+              href="https://www.linkedin.com/in/aliceeduarda-mth/"
+              target="_blank"
+              class="btn-social"
+              >LinkedIn</a
+            >
+            <a
+              href="https://github.com/aliceeduarda"
+              target="_blank"
+              class="btn-social"
+              >GitHub</a
+            >
+          </div>
+        </div>
+
+        <div class="rodape-secao">
+          <h3>Dúvidas?</h3>
+          <button class="btn-rodape" onclick="abrirModalDuvida()">
+            Tire sua Dúvida
+          </button>
+        </div>
+      </div>
+
+      <div class="rodape-logo-final">
+        <img
+          src="img/techstore_footer_logo.png"
+          alt="Tech Store Footer Logo"
+          class="logo-rodape"
+        />
+        <p>&copy; 2026 TechStore - Todos os direitos reservados.</p>
+      </div>
+    </footer>
+
+    <div id="modal-duvida" class="modal-duvida-overlay">
+      <div class="modal-duvida-content">
+        <h2>Tire sua Dúvida</h2>
+        <form id="form-duvida">
+          <input type="text" placeholder="Assunto" required />
+          <textarea placeholder="Sua Dúvida" rows="4" required></textarea>
+          <input type="email" placeholder="Seu E-mail" required />
+          <div class="modal-botoes">
+            <button type="submit" class="btn-enviar">Enviar</button>
+            <button
+              type="button"
+              class="btn-cancelar"
+              onclick="fecharModalDuvida()"
+            >
+              Cancelar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
  
     <aside id="carrinho-lateral" class="carrinho-fechado">
         <div class="carrinho-header">
@@ -160,13 +250,6 @@
          </button>
         </div>
     </aside>
-
-    <footer class="rodape-container">
-        <div class="rodape-logo-final">
-            <img src="img/techstore_footer_logo.png" alt="Tech Store Footer Logo" class="logo-rodape">
-            <p>&copy; 2026 TechStore - Todos os direitos reservados.</p>
-        </div>
-    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     

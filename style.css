@@ -898,12 +898,14 @@ button {
   align-items: center !important;
   width: 100% !important;
   min-height: 150px !important; 
-  padding: 40px 5% !important;
+  padding: 20px 5% 20px!important;
   background: #000 !important;
   margin: 0 !important;
-  overflow: visible !important; 
+  margin-bottom: 20px
+  overflow visible !important; 
   text-align: center !important;
 }
+
 
 .fancy span {
   display: inline-block !important;
@@ -917,13 +919,13 @@ button {
   white-space: normal !important; 
   word-break: keep-all !important; 
   opacity: 1 !important; 
-  animation: aparicao-gradual 1.8s ease-in-out infinite alternate;
+  animation: aparicao-gradual 1.8s infinite alternate;
 }
 
 @keyframes aparicao-gradual {
   0% {
     opacity: 0.3;
-    filter: blur(5px);
+    filter: blur(3px);
   }
 
   100% {
